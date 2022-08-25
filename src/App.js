@@ -5,10 +5,11 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
+import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
 
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
 
   return (
     <div className="App">
@@ -17,7 +18,7 @@ function App() {
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
             <TooltipComponent content="Settings" position='Top'>
               <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{ background: 'blue', borderRadius: '50%' }}>
-                <FiSettings/>
+                <FiSettings />
               </button>
             </TooltipComponent>
           </div>
@@ -30,7 +31,7 @@ function App() {
               <Sidebar />
             </div>
           )}
-          <div className={ `dark:bg-main-bg bg-main-bg min-h-screen w-full ${ activeMenu ? 'md:ml-72' : 'flex-2' }` }>
+          <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
             </div>
